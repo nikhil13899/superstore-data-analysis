@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: superstore
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    depends_on:
+      - db
